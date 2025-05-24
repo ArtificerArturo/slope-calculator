@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Slope Calculator</title>
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" type="text/css" href="https://jsxgraph.org/distrib/jsxgraph.css" />
+      <script type="text/javascript" src="https://jsxgraph.org/distrib/jsxgraphcore.js"></script>
+   </head>
+
+   <body>
+      <script src="script.js" defer></script>
+
+      <div class="calculatorContainer" id="slopeCalculator">
+         <div class="title">Slope Calculator</div>
+         <div class="background">
+            <div class="intro">Enter the coordinates of two points.</div>
+            <div class="inputRow">
+               <label>(x1, y1)</label>
+               <input id="x1Input" type="text" />
+               <input id="y1Input" type="text" />
+            </div>
+            <div class="inputRow">
+               <label>(x2, y2)</label>
+               <input id="x2Input" type="text" />
+               <input id="y2Input" type="text" />
+            </div>
+            <div id="jxgbox" class="jxgbox" style="width: 500px; height: 200px"></div>
+
+            <div>
+               <button class="calculate" onclick="calculateSlope()" data-uw-rm-kbnav="click">Calculate</button>
+            </div>
+         </div>
+
+         <div id="bugLink" style="text-align: center; margin-bottom: 20px; font-size: 90%">
+            Found a bug?
+            <a
+               class="ylist"
+               href="https://airtable.com/appR7FfpamrmFpTmL/pagGUR4cIuGPtr6cm/form?prefill_Calculator=SlopeCalculator&amp;hide_Calculator=true"
+               target="_blank"
+               rel="noopener"
+               >Let us know!</a
+            >
+         </div>
+      </div>
+   </body>
+</html>
