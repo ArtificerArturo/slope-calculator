@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" type="text/css" href="https://jsxgraph.org/distrib/jsxgraph.css" />
       <script type="text/javascript" src="https://jsxgraph.org/distrib/jsxgraphcore.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.js"></script>
    </head>
 
    <body>
@@ -15,21 +17,66 @@
       <div class="calculatorContainer" id="slopeCalculator">
          <div class="title">Slope Calculator</div>
          <div class="background">
-            <div class="intro">Enter the coordinates of two points.</div>
+            <div class="intro">Enter the Coordinates of Two Points</div>
             <div class="inputRow">
-               <label>(x1, y1)</label>
-               <input id="x1Input" type="text" />
-               <input id="y1Input" type="text" />
+               <label>Point A (x₁, y₁)</label>
+               <input id="x1Input" type="text" placeholder="-5" onkeyup="calculateSlope()" />
+               <input id="y1Input" type="text" placeholder="5" onkeyup="calculateSlope()" />
             </div>
             <div class="inputRow">
-               <label>(x2, y2)</label>
-               <input id="x2Input" type="text" />
-               <input id="y2Input" type="text" />
+               <label>Point B (x₂, y₂)</label>
+               <input id="x2Input" type="text" placeholder="7" onkeyup="calculateSlope()" />
+               <input id="y2Input" type="text" placeholder="-3" onkeyup="calculateSlope()" />
             </div>
-            <div id="jxgbox" class="jxgbox" style="width: 500px; height: 200px"></div>
 
-            <div>
-               <button class="calculate" onclick="calculateSlope()" data-uw-rm-kbnav="click">Calculate</button>
+            <div class="topResult">
+               <math
+                  ><mi mathvariant="normal">Slope</mi><mo>&#xA0;</mo><mi>m</mi><mo>=</mo
+                  ><mfrac
+                     ><mrow><mo>-</mo><mn>2</mn></mrow
+                     ><mn>3</mn></mfrac
+                  ></math
+               >
+               <div class="topDecimal">
+                  <math><mi>m</mi><mo>=</mo><mo>-</mo><mn>0.667</mn></math>
+               </div>
+            </div>
+            <div id="jxgbox" class="jxgbox" style="width: 400px; height: 400px"></div>
+            <script>
+               let board = JXG.JSXGraph.initBoard("jxgbox", {
+                  boundingbox: [-7, 10, 10, -7],
+                  axis: true,
+                  showCopyright: false,
+               })
+               let p1 = board.create("point", [-5, 5], { name: "A", size: 3, strokeColor: "#fc0", fillColor: "#fc0" })
+               let p2 = board.create("point", [7, -3], { name: "B", size: 3, strokeColor: "#fc0", fillColor: "#fc0" })
+               let li = board.create("line", ["A", "B"], { strokeColor: "#000000", strokeWidth: 1 })
+            </script>
+            <div class="result">
+               <math
+                  ><mi mathvariant="normal">Slope</mi><mo>=</mo
+                  ><mfrac
+                     ><mrow
+                        ><msub><mi>y</mi><mn>2</mn></msub
+                        ><mo>-</mo><msub><mi>y</mi><mn>1</mn></msub></mrow
+                     ><mrow
+                        ><msub><mi>x</mi><mn>2</mn></msub
+                        ><mo>-</mo><msub><mi>x</mi><mn>1</mn></msub></mrow
+                     ></mfrac
+                  ><mo>=</mo
+                  ><mfrac
+                     ><mrow><mo>-</mo><mn>3</mn><mo>-</mo><mn>5</mn></mrow
+                     ><mrow><mn>7</mn><mo>-</mo><mo>(</mo><mo>-</mo><mn>5</mn><mo>)</mo></mrow></mfrac
+                  ><mo>=</mo
+                  ><mfrac
+                     ><mrow><mo>-</mo><mn>8</mn></mrow
+                     ><mn>12</mn></mfrac
+                  ><mo>=</mo
+                  ><mfrac
+                     ><mrow><mo>-</mo><mn>2</mn></mrow
+                     ><mn>3</mn></mfrac
+                  ></math
+               >
             </div>
          </div>
 
