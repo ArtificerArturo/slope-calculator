@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+   let board = JXG.JSXGraph.initBoard("jxgbox", { boundingbox: [-7, 10, 10, -7], axis: true, showCopyright: false })
+   let p1 = board.create("point", [-5, 5], { name: "A", size: 3, strokeColor: "#fc0", fillColor: "#fc0" })
+   let p2 = board.create("point", [7, -3], { name: "B", size: 3, strokeColor: "#fc0", fillColor: "#fc0" })
+   let li = board.create("line", ["A", "B"], { strokeColor: "#000000", strokeWidth: 1 })
+})
+
 function calculateSlope() {
    let x1 = document.querySelector("#slopeCalculator #x1Input").value
    let y1 = document.querySelector("#slopeCalculator #y1Input").value
@@ -14,6 +21,9 @@ function calculateSlope() {
    //remove previous results
    if (document.querySelector("#slopeCalculator .topResult")) {
       topResultDiv.innerHTML = ""
+   }
+   if (document.querySelector("#slopeCalculator .topDecimalResult")) {
+      document.querySelector("#slopeCalculator .topDecimalResult").remove()
    }
    if (document.querySelector("#slopeCalculator .result")) {
       resultDiv.innerHTML = ""
